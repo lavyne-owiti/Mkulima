@@ -20,60 +20,59 @@ class Mkulima{
         // product should have id, name and price fields.
 
         this.removeFarm=(id)=>{
-            let remove =this.frams.filter(item =>{item.id ===id 
-               return this.farms.splice(remove,0)});
+            let remove =this.farms.find(item =>{item.id ===id 
+            });
+            console.log(this.farms);
         }
-        // this.removeFarm=function(id){
-        //     let remove =this.frams.find(item =>item.id ===id)
-        //     let farmindex=this.farms.indexOf(remove)
-        //        return this.farms.splice(farmindex,0);
-        // }
+       
         this.updateFarm=function(id,newId,updatedFarmName,updatedFarmer,updatedPhoneNumber,updatedAddress){
-            let newUpdates=this.farms.find(item=>{
-                if(item.id===id)
-                   console.log( newUpdates);
-                else
-                 console.log('the id does not exist '); 
-               })
-            newUpdates.id=newId;
-            newUpdates.farmName=updatedFarmName;
-            newUpdates.farmer=updatedFarmer;
-            newUpdates.phoneNumber=updatedPhoneNumber
-            newUpdates.address=updatedAddress   
+            let newUpdates=this.farms.find(item=>item.id===id)
+                if(newUpdates !=null){
+                    newUpdates.id=newId;
+                    newUpdates.farmName=updatedFarmName;
+                    newUpdates.farmer=updatedFarmer;
+                    newUpdates.phoneNumber=updatedPhoneNumber
+                    newUpdates.address=updatedAddress   
+                }
+                else{
+                    console.log('farm with that id does not exist')
+                }
+                
+          
         }
         this.getFarm=function(id){
            return  this.farms.find(item=>item.id===id)
         }
 
-        // this.removeProduct=(productId)=>{
-        //     let remove =this.frams.filter(item =>{item.productId ===productId 
-        //        return this.farms.splice(remove,0)});
-        // }
-        this.removeProduct=function(productId){
-            let remove =this.frams.find(item =>item.productId ===productId )
-            let prodindex=this.farms.indexOf(remove)
-               return this.farms.splice(prodindex,0);
+        this.removeProduct=(productId)=>{
+            let remove =this.farms.filter(item =>item.productId ===productId );
+            console.log(this.farms);
         }
+    
         this.updateProduct=function(productId,newProductId,newname,newProductPrice){
-            let productUpdates=this.farms.find(item=>{
-                if(item.productId===productId)
-                   console.log( productUpdates);
-                else
-                 console.log('the id does not exist '); 
-               })
-            productUpdates.productId=newProductId;
-            productUpdates.storeName=newname;
-            productUpdates.productPrice=newProductPrice;
+            let productUpdates=this.farms.find(item=>item.productId===productId)
+             if(productUpdates !=null){
+                productUpdates.productId=newProductId;
+                productUpdates.storeName=newname;
+                productUpdates.productPrice=newProductPrice;
+             }
+             else{
+                'this product does not exist'
+             }
+            
         }
         this.getProduct=function(productId){
            return  this.farms.find(item=>item.productId===productId)
+           
         }
         this.printproduct=()=>{
-            console.log(this.products);
+            for(let items of this.products){
+            console.log(items.name +":"+items.productPrice)};
         }
         this.calculateOrderCost=(productId,quantity)=>{
-            let product=this.products.find(item=>item.productId===productId);
-            console.log(`the total price is ${quantity*productPrice} for ${quantity} of ${product.name}`);
+            let product=this.products.find(item=>item.productId == productId);
+            console.log(product); 
+            console.log(`the total price is ${quantity*product.productPrice} for ${quantity} of ${p.name}`);
 
         }
    
@@ -87,7 +86,7 @@ Mkulima.prototype.addProduct=function(productId,name,productPrice){
     this.products.push({productId,name,productPrice})
 }
 Mkulima.prototype.addOrders=function(productId,name,quantity,productPrice){
-    this.addOrders.push({productId,name,quantity,productPrice})
+    this.orders.push({productId,name,quantity,productPrice})
 }
 let registerMkulimas = new Mkulima();
     registerMkulimas.addFram(77890,'KIBIDO','Kabati','0798765423','Korongo 111')
