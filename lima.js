@@ -19,9 +19,14 @@ class Mkulima{
         this.orders=[];
         // product should have id, name and price fields.
 
-        // this.removeFarm=(id)=>{
-        //     let remove =this.frams.filter(item =>{item.id ===id 
-        //        return remove.splice(remove,0)});
+        this.removeFarm=(id)=>{
+            let remove =this.frams.filter(item =>{item.id ===id 
+               return this.farms.splice(remove,0)});
+        }
+        // this.removeFarm=function(id){
+        //     let remove =this.frams.find(item =>item.id ===id)
+        //     let farmindex=this.farms.indexOf(remove)
+        //        return this.farms.splice(farmindex,0);
         // }
         this.updateFarm=function(id,newId,updatedFarmName,updatedFarmer,updatedPhoneNumber,updatedAddress){
             let newUpdates=this.farms.find(item=>{
@@ -42,8 +47,13 @@ class Mkulima{
 
         // this.removeProduct=(productId)=>{
         //     let remove =this.frams.filter(item =>{item.productId ===productId 
-        //        return remove.splice(remove,0)});
+        //        return this.farms.splice(remove,0)});
         // }
+        this.removeProduct=function(productId){
+            let remove =this.frams.find(item =>item.productId ===productId )
+            let prodindex=this.farms.indexOf(remove)
+               return this.farms.splice(prodindex,0);
+        }
         this.updateProduct=function(productId,newProductId,newname,newProductPrice){
             let productUpdates=this.farms.find(item=>{
                 if(item.productId===productId)
